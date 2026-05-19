@@ -5,6 +5,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 # anytag_frontend
 
+![logo](assets/main_logo.svg)
+
 Flutter frontend for the Anytag social tagging application.
 
 ## Features
@@ -39,17 +41,17 @@ flutter run
 
 ## Common Commands
 
-| Command                              | Description                       |
-| ------------------------------------ | --------------------------------- |
-| `flutter run`                        | Run application on default device |
-| `flutter test`                       | Run tests                         |
-| `flutter analyze`                    | Code analysis                     |
-| `dart format .`                      | Code formatting                   |
-| `flutter build apk --release`        | Build Android release APK         |
-| `flutter build ios --release`        | Build for iOS (macOS only)        |
-| `flutter build web --release`        | Build for web                     |
-| `flutter clean`                      | Clean build cache                 |
-| `flutter pub upgrade`                | Update dependencies               |
+| Command                       | Description                       |
+| ----------------------------- | --------------------------------- |
+| `flutter run`                 | Run application on default device |
+| `flutter test`                | Run tests                         |
+| `flutter analyze`             | Code analysis                     |
+| `dart format .`               | Code formatting                   |
+| `flutter build apk --release` | Build Android release APK         |
+| `flutter build ios --release` | Build for iOS (macOS only)        |
+| `flutter build web --release` | Build for web                     |
+| `flutter clean`               | Clean build cache                 |
+| `flutter pub upgrade`         | Update dependencies               |
 
 ## Documentation
 
