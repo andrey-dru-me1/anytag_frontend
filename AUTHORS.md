@@ -1,0 +1,27 @@
+<!--
+SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
+# Authors of Anytag Frontend
+
+This file lists the primary authors and copyright holders of the project.
+
+## Primary Author
+
+Andrey Melnikov <andrey260503@gmail.com> (@andrey_dru_me1)
+
+## Contributors
+
+(Listed in alphabetical order)
+
+- Andrey Melnikov
+
+## How to Add Yourself
+
+If you have contributed to this project and wish to be listed, please submit a pull request adding your name to the appropriate section.
+
+## Copyright Notice
+
+Copyright (C) 2026 The Anytag Frontend Authors
+See LICENSE file for full copyright and license details.

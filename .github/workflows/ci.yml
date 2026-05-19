@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
+# SPDX-License-Identifier: AGPL-3.0-only
+
+---
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  test:
+    name: Test (Linux)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.44.0
+          cache: true
+
+      - name: Show environment info
+        run: |
+          echo '=== Flutter ==='
+          flutter --version
+          echo '=== Dart ==='
+          dart --version
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Format check
+        run: dart format --set-exit-if-changed .
+
+      - name: Test
+        run: flutter test
+
+      - name: Build web
+        run: flutter build web --release

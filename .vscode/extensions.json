@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "nefrob.vscode-just-syntax",
+        "dart-code.dart-code",
+        "dart-code.flutter",
+        "redhat.vscode-yaml"
+    ]
+}

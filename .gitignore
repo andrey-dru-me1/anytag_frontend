@@ -1,0 +1,235 @@
+# ===== Flutter / Dart =====
+# See https://github.com/flutter/flutter/issues/128635 for more context.
+
+# Miscellaneous
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# As packages are no longer pinned, we use a lockfile for testing locally.
+# When unpinning packages, Using lockfiles ensures that failures in PRs are
+# actually due to those PRs, not due to a package being updated.
+!/pubspec.lock
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code related
+.classpath
+.project
+.settings/
+.vscode/*
+.ccls-cache
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+**/generated_plugin_registrant.dart
+.packages
+.pub-preload-cache/
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+linked_*.ds
+unlinked.ds
+unlinked_spec.ds
+
+# Android related
+**/android/**/gradle-wrapper.jar
+.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+*.jks
+local.properties
+**/.cxx/
+
+# iOS/XCode related
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# macOS
+**/Flutter/ephemeral/
+**/Pods/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/ephemeral
+**/xcuserdata/
+
+# Swift package manager (for code indexing)
+**/.build/
+
+# Windows
+**/windows/flutter/ephemeral/
+**/windows/flutter/generated_plugin_registrant.cc
+**/windows/flutter/generated_plugin_registrant.h
+**/windows/flutter/generated_plugins.cmake
+
+# Linux
+**/linux/flutter/ephemeral/
+**/linux/flutter/generated_plugin_registrant.cc
+**/linux/flutter/generated_plugin_registrant.h
+**/linux/flutter/generated_plugins.cmake
+
+# Coverage
+coverage/
+
+# Symbols
+app.*.symbols
+
+# Exceptions to above rules.
+!**/ios/**/default.mode1v3
+!**/ios/**/default.mode2v3
+!**/ios/**/default.pbxuser
+!**/ios/**/default.perspectivev3
+!**.vscode/settings.json
+
+# ===== IDE & Editor =====
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/**/*.seed
+.vscode/**/*.seed2
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Android Studio
+.idea/
+.gradle/
+local.properties
+
+# Xcode
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+
+# ===== OS & Temporary Files =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ===== Logs & Cache =====
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log
+
+# Coverage
+coverage/
+*.lcov
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# ===== Project Specific =====
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Secrets
+secrets.yaml
+secrets.json
+*.p12
+*.key
+*.cert
+*.pem
+
+# Build outputs
+dist/
+out/
+release/
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.exe
+
+# ===== Just =====
+# Just command history
+.just_history
+
+# ===== Python =====
+# Venv cache directory
+.venv/
+
+# ===== Symbolication & Obfuscation =====
+app.*.symbols
+app.*.map.json
+
+# ===== Miscellaneous =====
+.build/
+.swiftpm/
+migrate_working_dir/
+
+# ===== Custom =====
+# Add any project-specific ignores below this line

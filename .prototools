@@ -1,0 +1,6 @@
+just = "1.51.0"
+uv = "0.11.14"
+flutter = "3.44.0"
+[plugins.tools]
+just = "https://raw.githubusercontent.com/Phault/proto-toml-plugins/main/just/plugin.toml"
+flutter = "github://KonstantinKai/proto-flutter-plugin"
