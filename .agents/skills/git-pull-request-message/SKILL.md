@@ -1,7 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
-SPDX-License-Identifier: AGPL-3.0-only
--->
 ---
 name: git-pull-request-message
 description: Formulate a pull request title and description following the project's PR conventions
@@ -11,6 +7,10 @@ modeSlugs:
   - architect
   - ask
 ---
+<!--
+SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
+SPDX-License-Identifier: AGPL-3.0-only
+-->
 
 # git-pull-request-message Skill
 

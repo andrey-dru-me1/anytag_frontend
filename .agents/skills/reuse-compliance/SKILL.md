@@ -1,5 +1,3 @@
-<!-- SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors -->
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
 ---
 name: reuse-compliance
 description: Add SPDX license/copyright headers to new files to maintain REUSE compliance
@@ -8,6 +6,8 @@ modeSlugs:
   - debug
   - architect
 ---
+<!-- SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors -->
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
 
 # REUSE Compliance Skill
 <!-- REUSE-IgnoreStart -->

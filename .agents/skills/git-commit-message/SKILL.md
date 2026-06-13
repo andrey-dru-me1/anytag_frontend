@@ -1,7 +1,4 @@
 ---
-# SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
-# SPDX-License-Identifier: AGPL-3.0-only
-
 name: git-commit-message
 description: Formulate a git commit message following the project's commit convention
 modeSlugs:
@@ -10,6 +7,10 @@ modeSlugs:
   - architect
   - ask
 ---
+<!--
+SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
+SPDX-License-Identifier: AGPL-3.0-only
+-->
 
 # git-commit-message Skill
 
