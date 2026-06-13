@@ -21,6 +21,16 @@ Formulate a git commit message following the project's commit convention.
 - **Format**: `<type>(<ticket-id>): <subject>` with mandatory YouTrack ticket reference.
 - **See**: [`docs/GIT_WORKFLOW.md`](../docs/GIT_WORKFLOW.md)
 
+### [`git-pull-request-message`](./git-pull-request-message/SKILL.md)
+
+Formulate a pull request title and description following the project's PR conventions.
+
+- **When triggered**: User or agent needs to create or review a GitHub pull request for this repository.
+- **Format**: `[Type] TICKET-ID: Brief description` with mandatory YouTrack ticket reference in the title.
+- **Includes**: Full PR description template covering changes, testing, and checklist.
+- **See**: [`docs/GIT_WORKFLOW.md`](../docs/GIT_WORKFLOW.md)
+- **Related**: [`git-commit-message`](./git-commit-message/SKILL.md)
+
 ### [`reuse-compliance`](./reuse-compliance/SKILL.md)
 
 Add SPDX license/copyright headers to new files to maintain REUSE compliance.
