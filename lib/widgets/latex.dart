@@ -106,6 +106,7 @@ class LatexNode extends SpanNode {
       alignment: PlaceholderAlignment.middle,
       child: IntrinsicShield(
         fontSize: fontSize,
+        formula: textContent,
         child: latex,
       ),
     );
