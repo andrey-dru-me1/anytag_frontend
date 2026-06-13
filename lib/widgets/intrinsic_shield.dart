@@ -61,10 +61,11 @@ class IntrinsicShield extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(
-          BuildContext context, RenderIntrinsicShield renderObject) =>
-      renderObject
-        ..formula = formula
-        ..fontSize = fontSize;
+    BuildContext context,
+    RenderIntrinsicShield renderObject,
+  ) => renderObject
+    ..formula = formula
+    ..fontSize = fontSize;
 }
 
 /// The render object that shields intrinsic measurement.
@@ -80,12 +81,10 @@ class IntrinsicShield extends SingleChildRenderObjectWidget {
 ///   - [performLayout] to cache the child's actual size after layout and
 ///     schedule a second layout pass via post-frame callback.
 class RenderIntrinsicShield extends RenderProxyBox {
-  RenderIntrinsicShield({
-    required double fontSize,
-    required String formula,
-  })  : _fontSize = fontSize,
-        _formula = formula,
-        _key = _IntrinsicSizeKey(formula, fontSize);
+  RenderIntrinsicShield({required double fontSize, required String formula})
+    : _fontSize = fontSize,
+      _formula = formula,
+      _key = _IntrinsicSizeKey(formula, fontSize);
 
   double _fontSize;
   double get fontSize => _fontSize;
