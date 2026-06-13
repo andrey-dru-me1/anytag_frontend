@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
+// SPDX-License-Identifier: AGPL-3.0-only
+
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:markdown/markdown.dart' as m;
