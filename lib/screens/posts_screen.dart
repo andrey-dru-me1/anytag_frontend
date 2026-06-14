@@ -8,19 +8,25 @@ import 'package:anytag_frontend/services/post_service.dart';
 import 'package:anytag_frontend/widgets/post_card.dart';
 
 class PostsScreen extends StatefulWidget {
-  const PostsScreen({super.key});
+  const PostsScreen({super.key, this.postService});
+
+  /// Optional [IPostService] override for testing or dependency injection.
+  /// When null (the default), a [PostService] with default configuration is
+  /// created internally.
+  final IPostService? postService;
 
   @override
   State<PostsScreen> createState() => _PostsScreenState();
 }
 
 class _PostsScreenState extends State<PostsScreen> {
-  final PostService _postService = PostService();
+  late final IPostService _postService;
   late Future<List<Post>> _postsFuture;
 
   @override
   void initState() {
     super.initState();
+    _postService = widget.postService ?? PostService();
     _postsFuture = _postService.fetchPosts();
   }
 

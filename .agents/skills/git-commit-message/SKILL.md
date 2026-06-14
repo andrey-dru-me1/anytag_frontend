@@ -85,6 +85,10 @@ chore(ANY-7890): Upgrade dio to 5.4.0
 5. **Add a footer** if relevant (breaking changes, issue references).
 6. **Validate the final message** against the rules above.
 
+## Important Constraint
+
+This skill **formulates and displays** the commit message only. Do **not** run `git commit` — the user will commit themselves. Inspecting the working tree with `git diff`, `git status`, `git branch`, etc. is allowed.
+
 ## Key Project Rules (from AGENTS.md)
 
 - **Every commit MUST reference a YouTrack ticket**: `type(TICKET-ID): subject`

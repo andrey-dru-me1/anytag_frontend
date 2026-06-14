@@ -143,7 +143,15 @@ anytag_frontend/
   lib/                   # Application source code
     main.dart            # Application entry point
   test/                  # Tests
-    widget_test.dart     # Basic widget smoke test
+    widget_test.dart     # MyApp smoke test
+    fakes/
+      post_service_fake.dart  # Fake IPostService for widget tests
+    models/
+      post_test.dart     # Post model unit tests (8 tests)
+    services/
+      post_service_test.dart  # PostService unit tests via mock adapter (6 tests)
+    screens/
+      posts_screen_test.dart  # PostsScreen widget tests via FakePostService (4 tests)
   android/               # Android platform files (Kotlin, Gradle)
   ios/                   # iOS platform files (Xcode, Swift)
   web/                   # Web platform files
@@ -168,9 +176,11 @@ As the application grows, the `lib/` directory will be organized into:
 
 The Flutter version is pinned in [`.prototools`](../.prototools):
 
+> **⚠️ WARNING:** Never run `flutter upgrade`. This project uses [`proto`](https://moonrepo.dev/proto) to manage the Flutter SDK version (pinned in [`.prototools`](../.prototools)). Running `flutter upgrade` directly bypasses proto, installs an arbitrary version, and breaks project consistency and determinism. Even if Flutter itself suggests `flutter upgrade` (e.g. when a newer version is available), ignore that suggestion. To update Flutter, use `proto pin flutter <version>` followed by `proto install flutter` — see below.
+
 ```toml
 [plugins]
-flutter = "3.44.0"
+flutter = "3.44.2"
 ```
 
 **Frequent proto commands for Flutter:**
@@ -211,7 +221,7 @@ The project includes GitHub Actions workflows that run on every push and pull re
 
 ### macOS / Linux
 
-Both platforms are supported via proto. See [WINDOWS.md](./WINDOWS.md) for Windows setup.
+Both platforms are supported via proto.
 
 ### Windows
 

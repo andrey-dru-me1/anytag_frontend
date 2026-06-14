@@ -4,13 +4,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:anytag_frontend/screens/posts_screen.dart';
+import 'package:anytag_frontend/services/post_service.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, this.postService});
+
+  /// Optional [IPostService] override for testing or dependency injection.
+  final IPostService? postService;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const PostsScreen(),
+      home: PostsScreen(postService: postService),
     );
   }
 }

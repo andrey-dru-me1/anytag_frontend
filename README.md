@@ -12,7 +12,7 @@ Flutter frontend for the Anytag social tagging application.
 ## Features
 
 - Cross-platform: Android, iOS, Web, Linux, macOS, Windows
-- Proto-managed Flutter SDK pinned via `.prototools`
+- Proto-managed Flutter SDK pinned via `.prototools` (do **not** run `flutter upgrade`)
 - Just command runner for standardized workflows
 - PowerShell setup script for Windows
 - REUSE-compliant licensing
