@@ -124,6 +124,9 @@ path = [
   # Development configs
   ".prototools",
   ".python-version",
+
+  # Images
+  "assets/**"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 The Anytag Frontend Authors"

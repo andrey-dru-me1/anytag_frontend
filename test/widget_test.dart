@@ -1,33 +1,25 @@
 // SPDX-FileCopyrightText: 2026 The Anytag Frontend Authors
 // SPDX-License-Identifier: AGPL-3.0-only
 
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:anytag_frontend/main.dart';
+import 'package:anytag_frontend/screens/posts_screen.dart';
+
+import 'fakes/post_service_fake.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('MyApp renders PostsScreen', (WidgetTester tester) async {
+    final service = FakePostService();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(MyApp(postService: service));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // The app bar title should be "Posts" as defined in PostsScreen.
+    expect(find.text('Posts'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // The MyApp should be a MaterialApp wrapping PostsScreen.
+    expect(find.byType(MaterialApp), findsOneWidget);
+    expect(find.byType(PostsScreen), findsOneWidget);
   });
 }

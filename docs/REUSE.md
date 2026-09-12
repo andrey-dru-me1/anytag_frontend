@@ -19,10 +19,10 @@ The project is licensed under **AGPL-3.0-only**. See [`LICENSE`](../LICENSE) (in
 
 ### When to use `REUSE.toml` vs. inline headers
 
-| Approach                    | When to use                                                                          | Examples                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| **Inline SPDX header**      | Source files you create and edit                                                     | `.dart`, `.md`, `.sh`, `.yaml`, `.toml`, `.ps1`                       |
-| **`REUSE.toml` annotation** | Auto-generated files, lock files, or files where inline comments would break tooling | `pubspec.lock`, `.vscode/*.json`, `.metadata` |
+| Approach                    | When to use                                                                          | Examples                                        |
+| --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| **Inline SPDX header**      | Source files you create and edit                                                     | `.dart`, `.md`, `.sh`, `.yaml`, `.toml`, `.ps1` |
+| **`REUSE.toml` annotation** | Auto-generated files, lock files, or files where inline comments would break tooling | `pubspec.lock`, `.vscode/*.json`, `.metadata`   |
 
 If a file is auto-generated (e.g., by Flutter or Dart tooling), add it to [`REUSE.toml`](../REUSE.toml) instead of inserting an inline header — the header would be overwritten on regeneration.
 
