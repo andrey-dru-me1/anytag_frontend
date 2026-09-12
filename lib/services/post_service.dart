@@ -30,10 +30,17 @@ class PostService implements IPostService {
           );
 
   static String get _defaultBaseUrl {
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://10.0.2.2:3000';
+    const configuredBaseUrl = String.fromEnvironment('BASE_URL');
+
+    if (configuredBaseUrl.isNotEmpty) {
+      return configuredBaseUrl;
     }
-    return 'http://127.0.0.1:3000';
+
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return 'http://10.0.2.2:3000/api/v1';
+    }
+
+    return 'http://127.0.0.1:3000/api/v1';
   }
 
   @override
