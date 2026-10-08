@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../services/auth_service.dart';
 import 'package:dio/dio.dart';
-import 'signup_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
+  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -23,45 +23,45 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool get _canSubmit =>
       !_isSubmitting &&
+      _nameController.text.trim().isNotEmpty &&
       _emailController.text.trim().isNotEmpty &&
       _passwordController.text.isNotEmpty;
 
-  Future<void> _submit() async {
+  Future<void> _register() async {
     if (_isSubmitting) return;
 
+    final name = _nameController.text.trim();
     final email = _emailController.text.trim();
     final password = _passwordController.text;
-    if (email.isEmpty || password.isEmpty) return;
+    if (name.isEmpty || email.isEmpty || password.isEmpty) return;
 
     setState(() {
       _isSubmitting = true;
     });
 
     try {
-      final response = await _authService.login(
-        email: email,
-        password: password,
-      );
-
-      if (response['access_token'] is! String ||
-          response['refresh_token'] is! String) {
-        throw const FormatException('Login response has no tokens');
-      }
+      await _authService.register(name: name, email: email, password: password);
 
       if (!mounted) return;
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Credentials accepted')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Account created. Please log in.')),
+      );
+      Navigator.of(context).pop();
     } on DioException catch (error) {
       if (!mounted) return;
 
+      final data = error.response?.data;
+      final serverMessage = data is Map<String, dynamic>
+          ? data['message']
+          : null;
+
       String message;
-      if (error.response?.statusCode == 401) {
-        message = 'Invalid email or password';
+      if (serverMessage is String && serverMessage.isNotEmpty) {
+        message = serverMessage;
       } else if (error.response == null) {
         message = 'Cannot connect to server';
       } else {
-        message = 'Login failed. Please try again';
+        message = 'Could not create account';
       }
 
       ScaffoldMessenger.of(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Could not log in')));
+      ).showSnackBar(const SnackBar(content: Text('Could not create account')));
     } finally {
       if (mounted) {
         setState(() {
@@ -83,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -91,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Center(
@@ -99,27 +101,34 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 56),
+                const SizedBox(height: 24),
                 Center(
                   child: SvgPicture.asset(
                     'assets/logo.svg',
-                    width: 96,
-                    height: 96,
+                    width: 72,
+                    height: 72,
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Anytag',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 12),
                 Text(
-                  'Log in',
+                  'Create account',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 32),
+                TextFormField(
+                  controller: _nameController,
+                  onChanged: (_) => setState(() {}),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Enter your name';
+                    }
+                    return null;
+                  },
+                  decoration: const InputDecoration(labelText: 'Name'),
+                ),
+                const SizedBox(height: 16),
                 TextFormField(
                   controller: _emailController,
                   onChanged: (_) => setState(() {}),
@@ -149,19 +158,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton(
-                  onPressed: _canSubmit ? _submit : null,
-                  child: Text(_isSubmitting ? 'Logging in...' : 'Log in'),
-                ),
-                const SizedBox(height: 8),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => const SignupScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text('Create account'),
+                  onPressed: _canSubmit ? _register : null,
+                  child: Text(
+                    _isSubmitting ? 'Creating account...' : 'Create account',
+                  ),
                 ),
               ],
             ),

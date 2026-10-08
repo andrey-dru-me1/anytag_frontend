@@ -24,4 +24,15 @@ class AuthService {
     }
     return body;
   }
+
+  Future<void> register({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    await _dio.post(
+      '/users',
+      data: {'name': name, 'email': email, 'password': password},
+    );
+  }
 }
