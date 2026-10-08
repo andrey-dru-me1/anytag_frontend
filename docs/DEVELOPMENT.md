@@ -102,6 +102,16 @@ flutter doctor --android-licenses
 flutter run
 ```
 
+By default, the frontend sends API requests to
+`http://127.0.0.1:3000/api/v1` (or `http://10.0.2.2:3000/api/v1`
+on Android).
+
+To use another backend API URL, pass the `BASE_URL` Dart define:
+
+```bash
+flutter run --dart-define=BASE_URL=http://127.0.0.1:3000/api/v1
+```
+
 ### 2. Run Tests
 
 ```bash
