@@ -3,27 +3,23 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:anytag_frontend/screens/posts_screen.dart';
-import 'package:anytag_frontend/services/post_service.dart';
+import 'package:anytag_frontend/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, this.postService});
-
-  /// Optional [IPostService] override for testing or dependency injection.
-  final IPostService? postService;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Anytag',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3D45F0)),
       ),
-      home: PostsScreen(postService: postService),
+      home: const LoginScreen(),
     );
   }
 }
