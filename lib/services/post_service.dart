@@ -2,8 +2,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+
 import '../models/post.dart';
+import 'api_client.dart';
 
 /// Abstract interface for fetching posts.
 ///
@@ -16,32 +17,7 @@ abstract class IPostService {
 class PostService implements IPostService {
   final Dio _dio;
 
-  PostService({Dio? dio})
-    : _dio =
-          dio ??
-          Dio(
-            BaseOptions(
-              // Use 10.0.2.2 for Android emulator (maps to host localhost),
-              // 127.0.0.1 for iOS simulator and other platforms.
-              baseUrl: _defaultBaseUrl,
-              connectTimeout: const Duration(seconds: 10),
-              receiveTimeout: const Duration(seconds: 10),
-            ),
-          );
-
-  static String get _defaultBaseUrl {
-    const configuredBaseUrl = String.fromEnvironment('BASE_URL');
-
-    if (configuredBaseUrl.isNotEmpty) {
-      return configuredBaseUrl;
-    }
-
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://10.0.2.2:3000/api/v1';
-    }
-
-    return 'http://127.0.0.1:3000/api/v1';
-  }
+  PostService({Dio? dio}) : _dio = dio ?? createApiClient();
 
   @override
   Future<List<Post>> fetchPosts() async {
