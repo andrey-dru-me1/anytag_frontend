@@ -13,6 +13,11 @@ run:
   @echo "🚀 Running Flutter application..."
   flutter run
 
+# Run Flutter Web on a fixed local development port
+run-web:
+  @echo "🌐 Running Flutter Web on http://127.0.0.1:18081..."
+  flutter run -d web-server --web-hostname 127.0.0.1 --web-port 18081
+
 # Build release APK for Android
 build-apk:
   @echo "📱 Building Android release APK..."

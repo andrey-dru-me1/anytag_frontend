@@ -98,8 +98,28 @@ flutter doctor --android-licenses
 
 ### 1. Run the App
 
+Run the application on the default available device:
+
 ```bash
-flutter run
+just run
+```
+
+To run Flutter Web locally:
+
+```bash
+just run-web
+```
+
+The web application will be available at:
+
+```text
+http://127.0.0.1:18081
+```
+
+For local Flutter Web development, the backend must allow the frontend origin through CORS:
+
+```env
+CORS_ORIGIN=http://127.0.0.1:18081
 ```
 
 ### 2. Run Tests
